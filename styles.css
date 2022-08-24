@@ -6,16 +6,43 @@
   box-sizing: border-box;
 }
 
-body {
+@font-face {
+  font-family: 'Pixeloid';
+  src: url(/fonts/PixeloidSans-nR3g1.ttf);
+}
+
+/* body {
+} */
+
+.top-bar {
+  background-color: #2a0962;
+  width: 100%;
+  height: 20rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+img {
+  width: 100%;
+  height: 15rem;
+}
+.bottom-bar {
+  margin-top: -1rem;
+  background-color: #2a0962;
+  width: 100%;
+  height: 30rem;
+}
 
+h1 {
+  font-family: 'Pixeloid';
+  font-size: 48px;
+  color: #f1efe5;
+}
 .calculator {
-  margin-top: auto;
-  margin-bottom: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(8, 1rf);
   width: 20em;
@@ -25,6 +52,25 @@ body {
   background-color: rgb(245, 138, 138);
 }
 
+.display {
+  grid-column: span 8;
+  background-color: black;
+  grid-row: span 4;
+  padding: 1rem;
+  color: #f1efe5;
+  font-family: 'Pixeloid';
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+button {
+  border-radius: 3px;
+  color: black;
+  background-color: #d1d1d1;
+  font-size: 24px;
+}
 .num {
   grid-column: span 2;
   grid-row: span 2;
@@ -33,12 +79,6 @@ body {
 .operator {
   grid-column: span 2;
   grid-row: span 2;
-}
-
-.display {
-  grid-column: span 8;
-  background-color: black;
-  grid-row: span 4;
 }
 
 .clear {
@@ -51,8 +91,8 @@ body {
   grid-column: span 2;
 }
 
-.plus {
-}
+/* .plus {
+} */
 
 .minus {
   grid-row: 7 / 9;
