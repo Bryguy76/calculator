@@ -1,7 +1,8 @@
 'use strict';
 let operand1 = '';
 let operand2 = '';
-let operandSwitch = true;
+let opSwitch = true;
+// let op = '';
 
 const zero = document.querySelector('.zero');
 const one = document.querySelector('.one');
@@ -21,17 +22,21 @@ const clear = document.querySelector('.clear');
 const equal = document.querySelector('.equal');
 const display = document.querySelector('.display');
 const nums = document.querySelectorAll('.num');
+const operators = document.querySelectorAll('.operator');
 
 function operate(operator, num1, num2) {
   switch (operator) {
-    case (operator = '+'):
+    case '+':
       return Number(num1) + Number(num2);
-    case (operator = '-'):
-      return Number(num1) + Number(num2);
-    case (operator = '*'):
-      return Number(num1) + Number(num2);
-    case (operator = '/'):
-      return Number(num1) + Number(num2);
+    case '-':
+      return Number(num1) - Number(num2);
+    case '*':
+      return Number(num1) * Number(num2);
+    case '/':
+      return Number(num1) / Number(num2);
+    default:
+      console.log('Operator function error');
+      return;
   }
 }
 
@@ -49,7 +54,7 @@ function allClear() {
 nums.forEach(num =>
   num.addEventListener('click', function () {
     let numContent = num.textContent;
-    if (operandSwitch) {
+    if (opSwitch) {
       operand1 += numContent;
       displayUpdate(operand1);
     } else {
@@ -62,3 +67,20 @@ nums.forEach(num =>
 clear.addEventListener('click', function () {
   allClear();
 });
+
+operators.forEach(operator =>
+  operator.addEventListener('click', function () {
+    // op = operator.textContent;
+    if (opSwitch) {
+      opSwitch = false;
+      displayUpdate('');
+      return;
+    } else {
+      let output = operate(operator.textContent, operand1, operand2);
+      displayUpdate(output);
+      operand1 = output;
+      operand2 = '';
+      return;
+    }
+  })
+);
