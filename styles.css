@@ -20,7 +20,11 @@
   height: 20rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+h1 {
+  margin-top: 2rem;
 }
 img {
   width: 100%;
@@ -35,7 +39,7 @@ img {
 
 h1 {
   font-family: 'Pixeloid';
-  font-size: 48px;
+  font-size: 60px;
   color: #f1efe5;
 }
 .calculator {
@@ -44,7 +48,8 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: repeat(8, 1rf);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(15, 1fr);
   width: 20em;
   height: 30em;
   border: 0.5em solid rgb(245, 138, 138);
@@ -59,7 +64,7 @@ h1 {
   padding: 1rem;
   color: #f1efe5;
   font-family: 'Pixeloid';
-  font-size: 30px;
+  font-size: 48px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -90,9 +95,6 @@ button {
   grid-row: span 4;
   grid-column: span 2;
 }
-
-/* .plus {
-} */
 
 .minus {
   grid-row: 7 / 9;
