@@ -55,6 +55,7 @@ h1 {
   border: 0.5em solid rgb(245, 138, 138);
   gap: 0.25em;
   background-color: rgb(245, 138, 138);
+  border-radius: 10px;
 }
 
 .display {
@@ -68,10 +69,11 @@ h1 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border-radius: 5px;
 }
 
 button {
-  border-radius: 3px;
+  border-radius: 5px;
   color: black;
   background-color: #f0f0f0;
   font-size: 24px;
@@ -114,4 +116,9 @@ button {
 .divide {
   grid-row: 12 / 15;
   grid-column: 7 / 9;
+}
+
+.dot {
+  grid-column: span 2;
+  grid-row: span 2;
 }
