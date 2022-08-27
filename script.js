@@ -15,6 +15,7 @@ const six = document.querySelector('.six');
 const seven = document.querySelector('.seven');
 const eight = document.querySelector('.eight');
 const nine = document.querySelector('.nine');
+const dot = document.querySelector('.dot');
 const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
 const multiply = document.querySelector('.multiply');
@@ -55,6 +56,7 @@ function allClear() {
   operand1 = '';
   operand2 = '';
   opSwitch = true;
+  dot.disabled = false;
 }
 
 nums.forEach(num =>
@@ -76,10 +78,14 @@ clear.addEventListener('click', function () {
 
 operators.forEach(operator =>
   operator.addEventListener('click', function () {
+    if (!operand1) {
+      return;
+    }
     if (opSwitch) {
       opSwitch = false;
       op = operator.textContent;
       displayUpdate('');
+      dot.disabled = false;
       return;
     } else {
       output = operate(op, operand1, operand2);
@@ -87,6 +93,7 @@ operators.forEach(operator =>
       operand1 = output;
       operand2 = '';
       op = operator.textContent;
+      dot.disabled = false;
       return;
     }
   })
@@ -102,7 +109,19 @@ equal.addEventListener('click', function () {
   operand2 = '';
   op = '';
   opSwitch = true;
+  dot.disabled = false;
   return;
 });
 
-//BUG: After pressing the equals button, an error is thrown the next time you press an operator key
+dot.addEventListener('click', function () {
+  let dotContent = dot.textContent;
+  if (opSwitch) {
+    operand1 += dotContent;
+    displayUpdate(operand1);
+    dot.disabled = true;
+  } else {
+    operand2 += dotContent;
+    displayUpdate(operand2);
+    dot.disabled = true;
+  }
+});
