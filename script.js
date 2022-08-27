@@ -88,7 +88,7 @@ operators.forEach(operator =>
       dot.disabled = false;
       return;
     } else {
-      output = operate(op, operand1, operand2);
+      output = operate(op, operand1, operand2).toFixed(4);
       displayUpdate(output);
       operand1 = output;
       operand2 = '';
@@ -103,7 +103,7 @@ equal.addEventListener('click', function () {
   if (opSwitch) {
     return;
   }
-  output = operate(op, operand1, operand2);
+  output = operate(op, operand1, operand2).toFixed(4);
   displayUpdate(output);
   operand1 = output;
   operand2 = '';
