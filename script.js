@@ -2,7 +2,7 @@
 let operand1 = '';
 let operand2 = '';
 let opSwitch = true;
-// let op = '';
+let op = '';
 
 const zero = document.querySelector('.zero');
 const one = document.querySelector('.one');
@@ -70,17 +70,27 @@ clear.addEventListener('click', function () {
 
 operators.forEach(operator =>
   operator.addEventListener('click', function () {
-    // op = operator.textContent;
     if (opSwitch) {
       opSwitch = false;
+      op = operator.textContent;
       displayUpdate('');
       return;
     } else {
-      let output = operate(operator.textContent, operand1, operand2);
+      let output = operate(op, operand1, operand2);
       displayUpdate(output);
       operand1 = output;
       operand2 = '';
+      op = operator.textContent;
       return;
     }
   })
 );
+
+equal.addEventListener('click', function () {
+  let output = operate(op, operand1, operand2);
+  displayUpdate(output);
+  operand1 = output;
+  operand2 = '';
+  op = '';
+  return;
+});
