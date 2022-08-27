@@ -3,6 +3,7 @@ let operand1 = '';
 let operand2 = '';
 let opSwitch = true;
 let op = '';
+let output = '';
 
 const zero = document.querySelector('.zero');
 const one = document.querySelector('.one');
@@ -35,7 +36,11 @@ function operate(operator, num1, num2) {
     case '/':
       return Number(num1) / Number(num2);
     default:
-      console.log('Operator function error');
+      console.log(
+        `Operator function error: operator: ${
+          operator ? operator : 'no operator'
+        }, num1: ${num1}, num2: ${num2}.`
+      );
       return;
   }
 }
@@ -49,6 +54,7 @@ function allClear() {
   displayUpdate('');
   operand1 = '';
   operand2 = '';
+  opSwitch = true;
 }
 
 nums.forEach(num =>
@@ -76,7 +82,7 @@ operators.forEach(operator =>
       displayUpdate('');
       return;
     } else {
-      let output = operate(op, operand1, operand2);
+      output = operate(op, operand1, operand2);
       displayUpdate(output);
       operand1 = output;
       operand2 = '';
@@ -87,10 +93,16 @@ operators.forEach(operator =>
 );
 
 equal.addEventListener('click', function () {
-  let output = operate(op, operand1, operand2);
+  if (opSwitch) {
+    return;
+  }
+  output = operate(op, operand1, operand2);
   displayUpdate(output);
   operand1 = output;
   operand2 = '';
   op = '';
+  opSwitch = true;
   return;
 });
+
+//BUG: After pressing the equals button, an error is thrown the next time you press an operator key

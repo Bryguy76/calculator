@@ -40,7 +40,7 @@ img {
 h1 {
   font-family: 'Pixeloid';
   font-size: 60px;
-  color: #f1efe5;
+  color: #d1d1d1;
 }
 .calculator {
   position: absolute;
@@ -62,7 +62,7 @@ h1 {
   background-color: black;
   grid-row: span 4;
   padding: 1rem;
-  color: #f1efe5;
+  color: #d1d1d1;
   font-family: 'Pixeloid';
   font-size: 48px;
   display: flex;
@@ -73,7 +73,7 @@ h1 {
 button {
   border-radius: 3px;
   color: black;
-  background-color: #d1d1d1;
+  background-color: #f0f0f0;
   font-size: 24px;
 }
 .num {
@@ -84,6 +84,11 @@ button {
 .operator {
   grid-column: span 2;
   grid-row: span 2;
+  background-color: #d1d1d1;
+}
+
+.spec {
+  background-color: #d1d1d1;
 }
 
 .clear {
