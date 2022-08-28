@@ -23,6 +23,7 @@ const divide = document.querySelector('.divide');
 const clear = document.querySelector('.clear');
 const equal = document.querySelector('.equal');
 const display = document.querySelector('.display');
+const displayContent = document.querySelector('p');
 const nums = document.querySelectorAll('.num');
 const operators = document.querySelectorAll('.operator');
 
@@ -47,7 +48,7 @@ function operate(operator, num1, num2) {
 }
 
 function displayUpdate(num) {
-  display.textContent = num;
+  displayContent.textContent = num;
   return;
 }
 
@@ -88,7 +89,7 @@ operators.forEach(operator =>
       dot.disabled = false;
       return;
     } else {
-      output = operate(op, operand1, operand2).toFixed(4);
+      output = operate(op, operand1, operand2);
       displayUpdate(output);
       operand1 = output;
       operand2 = '';
@@ -103,7 +104,7 @@ equal.addEventListener('click', function () {
   if (opSwitch) {
     return;
   }
-  output = operate(op, operand1, operand2).toFixed(4);
+  output = operate(op, operand1, operand2);
   displayUpdate(output);
   operand1 = output;
   operand2 = '';

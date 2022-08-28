@@ -60,13 +60,19 @@ h1 {
   background-color: black;
   grid-row: span 4;
   padding: 1rem;
-  color: #d1d1d1;
-  font-family: 'Pixeloid';
-  font-size: 48px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   border-radius: 5px;
+}
+
+.calc-content {
+  min-width: 0px;
+  flex: 0 1 auto;
+  overflow-x: scroll;
+  font-size: 2rem;
+  font-family: 'Pixeloid';
+  color: #d1d1d1;
 }
 
 button {
