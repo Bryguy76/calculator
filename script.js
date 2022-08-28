@@ -26,6 +26,7 @@ const display = document.querySelector('.display');
 const displayContent = document.querySelector('p');
 const nums = document.querySelectorAll('.num');
 const operators = document.querySelectorAll('.operator');
+const backspace = document.querySelector('.backspace');
 
 function operate(operator, num1, num2) {
   switch (operator) {
@@ -124,5 +125,15 @@ dot.addEventListener('click', function () {
     operand2 += dotContent;
     displayUpdate(operand2);
     dot.disabled = true;
+  }
+});
+
+backspace.addEventListener('click', function () {
+  if (opSwitch) {
+    operand1 = operand1.slice(0, operand1.length - 1);
+    displayUpdate(operand1);
+  } else {
+    operand2 = operand2.slice(0, operand2.length - 1);
+    displayUpdate(operand2);
   }
 });
