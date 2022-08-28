@@ -5,21 +5,7 @@ let opSwitch = true;
 let op = '';
 let output = '';
 
-const zero = document.querySelector('.zero');
-const one = document.querySelector('.one');
-const two = document.querySelector('.two');
-const three = document.querySelector('.three');
-const four = document.querySelector('.four');
-const five = document.querySelector('.five');
-const six = document.querySelector('.six');
-const seven = document.querySelector('.seven');
-const eight = document.querySelector('.eight');
-const nine = document.querySelector('.nine');
 const dot = document.querySelector('.dot');
-const plus = document.querySelector('.plus');
-const minus = document.querySelector('.minus');
-const multiply = document.querySelector('.multiply');
-const divide = document.querySelector('.divide');
 const clear = document.querySelector('.clear');
 const equal = document.querySelector('.equal');
 const display = document.querySelector('.display');
@@ -39,11 +25,7 @@ function operate(operator, num1, num2) {
     case '/':
       return Number(num1) / Number(num2);
     default:
-      console.log(
-        `Operator function error: operator: ${
-          operator ? operator : 'no operator'
-        }, num1: ${num1}, num2: ${num2}.`
-      );
+      console.log(`Operator function error`);
       return;
   }
 }
@@ -204,5 +186,4 @@ window.addEventListener('keydown', e => {
     dot.disabled = false;
     return;
   }
-  console.log(code);
 });
