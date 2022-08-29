@@ -11,6 +11,10 @@
   src: url(/fonts/PixeloidSans-nR3g1.ttf);
 }
 
+body {
+  background-color: #2a0962;
+}
+
 .top-bar {
   background-color: #2a0962;
   width: 100%;

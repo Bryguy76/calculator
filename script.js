@@ -23,7 +23,11 @@ function operate(operator, num1, num2) {
     case '*':
       return Number(num1) * Number(num2);
     case '/':
-      return Number(num1) / Number(num2);
+      if (num2 == 0) {
+        return 8008135;
+      } else {
+        return Number(num1) / Number(num2);
+      }
     default:
       console.log(`Operator function error`);
       return;
