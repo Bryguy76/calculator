@@ -41,7 +41,6 @@ function displayUpdate(num) {
 
 function allClear() {
   displayUpdate('');
-  operand1 = '';
   operand2 = '';
   opSwitch = true;
   dot.disabled = false;
